@@ -26,6 +26,12 @@ export default defineConfig([
         'warn',
         { allowConstantExport: true },
       ],
+      semi: ['error', 'always', { omitLastInOneLineBlock: false }],
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'comma-dangle': ['error', 'never'],
+      quotes: ['error', 'single'],
+      'react/prop-types': [0],
+      'indent': ['error', 'tab']
     },
   },
 ])
