@@ -57,3 +57,11 @@
 	line-height: normal;
 	color: #9EA1B1;
 }
+
+.link:hover {
+	color: var(--primary-color);
+}
+
+.active {
+	color: var(--primary-color);
+}
