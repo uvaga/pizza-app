@@ -9,8 +9,8 @@ export function Layout() {
 		<div className={styles['sidebar']}>
 			<div className={styles['user']}>
 				<img className={styles['avatar']} src="/avatar.png" alt="Аватар пользователя" />
-				<div className={styles['name']}>Антон Ларичев</div>
-				<div className={styles['email']}>alari@ya.ru</div>
+				<div className={styles['name']}>Андрей Аксёнов</div>
+				<div className={styles['email']}>aaksenov@elinext.com</div>
 			</div>
 			<div className={styles['menu']}>
 				<NavLink to='/' className={({isActive}) => cn(styles['link'], {
@@ -28,7 +28,7 @@ export function Layout() {
 				Выход
 			</Button>
 		</div>
-		<div>
+		<div className={styles['content']}>
 			<Outlet />
 		</div>
 	</div>;
