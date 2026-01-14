@@ -12,22 +12,21 @@ export default function Menu() {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [error, setError] = useState<string | undefined>();
 
-	const getMenu = async () => {
-		try {
-			const { data } = await axios.get<Product[]>(`${PREFIX}/products`);
-			setProducts(data);
-			setIsLoading(false);
-		} catch (e) {
-			console.error(e);
-			if (e instanceof AxiosError) {
-				setError(e.message);
-			}
-			setIsLoading(false);
-			return;
-		}
-	};
-
 	useEffect(() => {
+		const getMenu = async () => {
+			try {
+				const { data } = await axios.get<Product[]>(`${PREFIX}/products`);
+				setProducts(data);
+				setIsLoading(false);
+			} catch (e) {
+				console.error(e);
+				if (e instanceof AxiosError) {
+					setError(e.message);
+				}
+				setIsLoading(false);
+				return;
+			}
+		};
 		getMenu();
 	}, []);
 
