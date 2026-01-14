@@ -9,6 +9,9 @@ import {Error as ErrorPage} from './pages/Error/Error.tsx';
 import axios from 'axios';
 import {PREFIX} from './helpers/API.ts';
 import {lazy, Suspense} from 'react';
+import {AuthLayout} from './layout/Auth/AuthLayout.tsx';
+import {Login} from './pages/Login/Login.tsx';
+import {Register} from './pages/Register/Register.tsx';
 
 const Menu = lazy(() => import('./pages/Menu/Menu'));
 
@@ -33,12 +36,25 @@ const router = createBrowserRouter([
 					const { data } = await axios.get(`${PREFIX}/products/${params.id}`);
 					return data;
 				}
-			},
-			{
-				path: '*',
-				element: <ErrorPage />
 			}
 		]
+	},
+	{
+		path: '/auth',
+		element: <AuthLayout />,
+		children: [
+			{
+				path: 'login',
+				element: <Login />
+			}, {
+				path: 'register',
+				element: <Register />
+			}
+		]
+	},
+	{
+		path: '*',
+		element: <ErrorPage />
 	}
 ]);
 
